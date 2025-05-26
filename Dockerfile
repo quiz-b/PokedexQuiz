@@ -5,6 +5,6 @@ RUN mvn clean package -Dmaven.test.skip=true
 
 FROM eclipse-temurin:17-alpine
 WORKDIR /app
-COPY --from=build /workspace/target/SpringStart08-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /workspace/target/PokedexQuiz-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
