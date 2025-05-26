@@ -18,16 +18,21 @@
 <br>
 <div id="blk">
 <div id="cnt">
-	<div id="scoreDisplay">スコア: 0</div>
-	<div id="len">図鑑説明の長さ = XXX</div><br>
+	
+	<div class="question-label">
+    <img id="questionIcon" class="icon" alt="キャラクターアイコン">
+    <div id="questionNumber">1問目</div>
+    </div>
+	<div id="len" style="background-color: white; text-align: right; margin-left: auto; margin-right: 0; width: fit-content;">図鑑説明の長さ = XXX</div>
 	<div id="d1" class="wk"><textarea id="que" class="bb" rows="7" readonly style="width: 100%; max-width: 100%; box-sizing: border-box;">問題を読み込んでいます。しばらくお待ちください。</textarea></div><br>
 	<div id="answerSection">
     	<input type="text" id="answerInput" list="pokemonNames" style="font-size: 16px;" placeholder="回答欄">
     	<datalist id="pokemonNames"></datalist>
     	<br><br><button id="quizButton" type="button" onclick="putButton()">問題文停止</button>
 	</div><br>
+		<div id="scoreDisplay" style="background-color: white;">スコア: 0</div>
 	<br>
-	<div id="resultMsg"></div>
+	<div id="resultMsg" style="background-color: white;"></div>
 	■答え：
 	<div id="d2" class="wk"><textarea id="ans" class="bb" rows=5 cols=20 readonly>回答が表示されます。</textarea></div><br>
 </div>

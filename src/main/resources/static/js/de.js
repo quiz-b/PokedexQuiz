@@ -14,6 +14,7 @@ var p=0, aa=0, rt=!1, an=Math.PI * 1.5, tp=Math.PI * 2;
 var quizButtonState = 0; // 0: 初期, 1: 停止後, 2: 回答表示後
 let totalScore = 0;  // 累積得点
 let queFullTextLength = 0;  // 現在の問題文の全文の長さ
+var questionNumber = 0;// 今何問目？
 
 const ac = [
   '#E0E0FF',
@@ -140,6 +141,11 @@ function putButton(){
 
 	switch(stop){
 	case 0:
+		document.getElementById("questionNumber").innerText = ++questionNumber + "問目";
+		const paddedNumber = String(questionNumber).padStart(3, '0'); // 001, 002, ...
+		const imagePath = `/img/icon/${paddedNumber}n.png`;
+		// 画像のsrcを更新
+		document.getElementById("questionIcon").src = imagePath;
 		btn.innerText = "問題文停止";
 		document.getElementById("answerInput").value = "";
 		document.getElementById("resultMsg").textContent = "";
