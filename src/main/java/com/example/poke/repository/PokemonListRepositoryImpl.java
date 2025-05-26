@@ -22,10 +22,13 @@ public class PokemonListRepositoryImpl implements PokemonListRepository {
 		String sql =
 				" SELECT * FROM pokemon_description;";
 		
+		System.out.print(sql);
 		
 		// SQLで検索（プレースホルダ：p）
 		List<Map<String, Object>> list 
 				= jdbcTemplate.queryForList(sql);
+		
+		System.out.print(list);
 		
 		List<Pokemon> result = new ArrayList<>();
 

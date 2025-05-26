@@ -24,6 +24,7 @@ public class MainController {
 	public String StartGame(Model model){
 		
 		System.out.print(service.GetPokemonList());
+		System.out.print("StartGame");
 		
 		model.addAttribute("pokemonList", service.GetPokemonList());
 		
