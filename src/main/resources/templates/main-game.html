@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>ポケモン図鑑クイズ</title>
+</head>
+
+<body onLoad="csv2Array()">
+<div id="dg"><img id="dg" src="../../img/load.gif"></div>
+<div id="cl">
+<form action="#" name="f1">
+<br>
+<div id="blk">
+<div id="cnt">
+	<div id="scoreDisplay">スコア: 0</div>
+	<div id="len">図鑑説明の長さ = XXX</div><br>
+	<div id="d1" class="wk"><textarea id="que" class="bb" rows=7 cols=128 readonly>問題を読み込んでいます。しばらくお待ちください。</textarea></div><br>
+	<div id="answerSection">
+    	<input type="text" id="answerInput" list="pokemonNames" placeholder="回答欄">
+    	<datalist id="pokemonNames"></datalist>
+    	<br><br><button id="quizButton" type="button" onclick="putButton()">問題文停止</button>
+	</div><br>
+	<br>
+	<div id="resultMsg"></div>
+	■答え：
+	<div id="d2" class="wk"><textarea id="ans" class="bb" rows=5 cols=20 readonly>回答が表示されます。</textarea></div><br>
+</div>
+<script th:inline="javascript">
+  const pokemonList = /*[[${pokemonList}]]*/ [];
+
+  // ユーザー入力用 datalist を作成
+  window.addEventListener('DOMContentLoaded', () => {
+    const datalist = document.getElementById('pokemonNames');
+    if (!datalist) return;
+
+    const seen = new Set();  // 重複チェック用
+    pokemonList.forEach(pokemon => {
+      if (!seen.has(pokemon.name)) {
+        seen.add(pokemon.name);
+        const option = document.createElement('option');
+        option.value = pokemon.name;
+        datalist.appendChild(option);
+      }
+    });
+  });
+</script>
+
+<div id="tt">Timer<br><canvas id="cv" width="80" height="80"></canvas></div><br>
+
+<table id="t1" summary="configuration" width=300 align=center cellpadding=1 cellspacing=1 border=1>
+<tr><th abbr="MENU" rowspan=6>設<br>定</th><td align=center>速↑
+<select id="in1" onchange="chg(this, 0)">
+	<option class=od value="0">0秒</option>
+	<option class=ev value="80">0.08秒</option>
+	<option class=od value="100">0.10秒</option>
+	<option class=ev value="120">0.12秒</option>
+	<option class=od value="140" selected>0.14秒</option>
+	<option class=ev value="160">0.16秒</option>
+	<option class=od value="180">0.18秒</option>
+	<option class=ev value="200">0.20秒</option>
+</select>
+↓遅</td></tr>
+<tr><td align=center>読ませ押し
+<select id="in2" onchange="chg(this, 1)">
+	<option class=od value="0">なし</option>
+	<option class=ev value="2">2文字</option>
+	<option class=od value="3" selected>3文字</option>
+	<option class=ev value="4">4文字</option>
+	<option class=od value="5">5文字</option>
+</select>
+</td></tr>
+<tr><td align=center>
+<label for="l01"><input type="checkbox" value="1" id="l01" onchange="chg(this, 2)">ポイントを表示する</label>
+</td></tr>
+<tr><td align=center>
+<label for="l02"><input type="checkbox" value="2" id="l02" onchange="chg(this, 3)">効果音を鳴らす</label>
+</td></tr>
+<tr><td align=center>読み上げ
+<select id="in3" onchange="chg(this, 4)">
+	<option class=od value="-1">なし</option>
+</select>
+</td></tr>
+<tr><td align=center>背景色
+<table align="center" summary="color"><tr>
+	<td onMouseOver="bgChange('#036')" id="c1">&nbsp;</td>
+	<td onMouseOver="bgChange('#005')" id="c2">&nbsp;</td>
+	<td onMouseOver="bgChange('#050')" id="c3">&nbsp;</td>
+	<td onMouseOver="bgChange('#330')" id="c4">&nbsp;</td>
+	<td onMouseOver="bgChange('#630')" id="c5">&nbsp;</td>
+	<td onMouseOver="bgChange('#500')" id="c6">&nbsp;</td>
+	<td onMouseOver="bgChange('#333')" id="c7">&nbsp;</td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</form>
+
+
+<script type="text/javascript" src="/js/de001.js"></script>
+<script type="text/javascript" src="/js/de.js"></script>
+</div>
+</body>
+</html>

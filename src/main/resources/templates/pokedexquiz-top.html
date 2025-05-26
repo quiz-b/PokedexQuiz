@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ポケモン図鑑クイズ</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h2>ポケモン図鑑クイズ</h2>
+
+ <form th:action="@{/startgame}" method="POST" >
+
+<input type="submit" value="スタート">
+</form>
+
+</body>
+</html>
