@@ -70,8 +70,8 @@ function csv2Array(){
 	}
 	chg(f.in1, 0);
 	chg(f.in2, 1);
-	chg(f.l01, 2);
-	chg(f.l02, 3);
+	//chg(f.l01, 2);
+	//chg(f.l02, 3);
 	chg(f.in3, 4);
 	putButton();
 	e.parentNode.removeChild(e);
@@ -159,7 +159,7 @@ function putButton(){
 		qLen = que.length;
 		dLen = '' + qLen;
 		$('len').innerHTML = '図鑑説明の長さ&nbsp;' + Array(5-dLen.length).join('&nbsp;') + dLen;
-		draw(5.0);
+		//draw(5.0);
 
 		disp();
 		break;
@@ -179,7 +179,7 @@ function putButton(){
 		que.length==cut && fncWait();
 		fncStop();
 		clearTimeout(rep);
-		cntDown();
+		//cntDown();
 		fncPlay('se5');
 		stop = 3;
 		break;

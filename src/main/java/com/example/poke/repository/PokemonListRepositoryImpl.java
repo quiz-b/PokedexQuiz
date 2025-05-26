@@ -20,7 +20,7 @@ public class PokemonListRepositoryImpl implements PokemonListRepository {
 	@Override
 	public List<Pokemon> GetPokemonList() {
 		String sql =
-				" SELECT * FROM pokemon_description;";
+				" SELECT * FROM pokemon_description ORDER BY id;";
 		
 		System.out.print(sql);
 		

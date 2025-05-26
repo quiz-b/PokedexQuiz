@@ -49,9 +49,20 @@
       }
     });
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("answerInput");
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();  // フォーム送信をキャンセル
+        putButton();             // クイズ判定関数を呼び出す
+      }
+    });
+  });
+  
 </script>
 
-<div id="tt">Timer<br><canvas id="cv" width="80" height="80"></canvas></div><br>
+
+<div id="tt"><br><canvas id="cv" width="80" height="80"></canvas></div><br>
 
 <table id="t1" summary="configuration" width=300 align=center cellpadding=1 cellspacing=1 border=1>
 <tr><th abbr="MENU" rowspan=6>設<br>定</th><td align=center>速↑
@@ -75,28 +86,12 @@
 	<option class=od value="5">5文字</option>
 </select>
 </td></tr>
-<tr><td align=center>
-<label for="l01"><input type="checkbox" value="1" id="l01" onchange="chg(this, 2)">ポイントを表示する</label>
-</td></tr>
-<tr><td align=center>
-<label for="l02"><input type="checkbox" value="2" id="l02" onchange="chg(this, 3)">効果音を鳴らす</label>
-</td></tr>
 <tr><td align=center>読み上げ
 <select id="in3" onchange="chg(this, 4)">
 	<option class=od value="-1">なし</option>
 </select>
 </td></tr>
-<tr><td align=center>背景色
-<table align="center" summary="color"><tr>
-	<td onMouseOver="bgChange('#036')" id="c1">&nbsp;</td>
-	<td onMouseOver="bgChange('#005')" id="c2">&nbsp;</td>
-	<td onMouseOver="bgChange('#050')" id="c3">&nbsp;</td>
-	<td onMouseOver="bgChange('#330')" id="c4">&nbsp;</td>
-	<td onMouseOver="bgChange('#630')" id="c5">&nbsp;</td>
-	<td onMouseOver="bgChange('#500')" id="c6">&nbsp;</td>
-	<td onMouseOver="bgChange('#333')" id="c7">&nbsp;</td>
-</tr></table>
-</td></tr>
+
 </table>
 </div>
 </form>
