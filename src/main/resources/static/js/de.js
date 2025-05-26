@@ -196,7 +196,7 @@ function putButton(){
 		const userAnswer = document.getElementById("answerInput").value.trim();
 		const correctAnswer = ans.split('\n')[0].trim(); // 「名前」だけ取り出して比較
 
-		if (userAnswer === correctAnswer) {
+		if (toHiragana(userAnswer) === toHiragana(correctAnswer)) {
 			// 表示された文字数（d1 のテキストエリアの値）
     		//const displayedLength = document.getElementById("que").value.length;
 
@@ -279,4 +279,10 @@ function addSelect(){
 }
 function synthChk(){
 	return !(typeof synth === 'undefined');
+}
+
+function toHiragana(str) {
+  return str.replace(/[\u30A1-\u30F6]/g, function(match) {
+    return String.fromCharCode(match.charCodeAt(0) - 0x60);
+  });
 }
