@@ -213,8 +213,8 @@ function putButton(){
     		totalScore += score;
 
     		// スコア表示を更新
-    		document.getElementById("scoreDisplay").textContent = `スコア: ${totalScore.toFixed(2)}`;
-			document.getElementById("resultMsg").textContent = "正解！" + fullLength +" 文字中" + displayedLength + " 文字目で正解" 
+    		document.getElementById("scoreDisplay").textContent = `スコア: ${totalScore.toFixed(1)}`;
+			document.getElementById("resultMsg").textContent = "正解！" + fullLength +" 文字中" + displayedLength + " 文字目で正解 " + score.toFixed(1) +" 点獲得";
 			
 		} else {
 			document.getElementById("resultMsg").textContent = "不正解！";

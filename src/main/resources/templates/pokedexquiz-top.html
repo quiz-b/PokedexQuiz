@@ -7,12 +7,20 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<br><br>
+  <h2><img src="/img/001n.png" style="vertical-align: middle; height: 2.5em;">ポケモン図鑑クイズ<img src="/img/001n.png" style="vertical-align: middle; height: 2.5em;"></h2>
 
-  <h2>ポケモン図鑑クイズ</h2>
-
+  <div class="quiz-start-button-wrapper">
   <form th:action="@{/startgame}" method="POST">
-    <input type="submit" value="スタート">
+    <button type="submit" class="pokeball-button">
+      <span class="button-text">スタート</span>
+      <span class="center-circle"></span>
+      <span class="black-line"></span>
+    </button>
   </form>
+</div>
+
+<p> ※出題は初代151匹からです</p>
 
 </body>
 </html>
