@@ -6,4 +6,5 @@ import com.example.poke.entity.Pokemon;
 
 public interface PokemonListService {
 	List<Pokemon> GetPokemonList();
+	List<Pokemon> getPokemonsByGenerations(List<String> generation);
 }

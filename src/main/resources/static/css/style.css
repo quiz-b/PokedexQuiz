@@ -16,6 +16,59 @@ body {
   box-sizing: border-box;
 }
 
+.generation-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+      justify-items: center;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .generation-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .generation-option input[type="checkbox"] {
+      display: none;
+    }
+
+    .generation-option img {
+      width: 100px;
+      height: 100px;
+      filter: grayscale(100%);
+      border: 3px solid transparent;
+      border-radius: 10px;
+      transition: filter 0.3s ease, border-color 0.3s ease;
+    }
+
+    .generation-option input[type="checkbox"]:checked + img {
+      filter: none;
+      border-color: #4CAF50;
+    }
+
+    .generation-option span {
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .generation-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .generation-option img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
 .question-label {
   display: flex;
   align-items: center;

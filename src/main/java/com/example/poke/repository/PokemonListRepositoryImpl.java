@@ -1,23 +1,17 @@
 package com.example.poke.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import com.example.poke.entity.Pokemon;
 
 import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class PokemonListRepositoryImpl implements PokemonListRepository {
+public class PokemonListRepositoryImpl {
 
 	private final JdbcTemplate jdbcTemplate;
 	
-	@Override
+	/*@Override
 	public List<Pokemon> GetPokemonList() {
 		String sql =
 				" SELECT * FROM pokemon_description ORDER BY id;";
@@ -47,5 +41,6 @@ public class PokemonListRepositoryImpl implements PokemonListRepository {
 	    }
 		
 		return result;
-	}
+	}*/
+
 }
